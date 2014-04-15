@@ -1,0 +1,25 @@
+body {
+  width: 1024px;
+  margin: auto;
+}
+h3 {
+  border-bottom: 1px solid #999;
+}
+span {
+  color: blue;
+  margin-left: 10px;
+  cursor: pointer;
+}
+#main {
+  display: -webkit-box;
+}
+#all, #filtered {
+  border: 1px solid #666;
+  -webkit-box-flex: 1;
+}
+.container {
+  height: 600px;
+  word-wrap: break-word;
+  overflow-y: auto;
+  overflow-x: hidden;
+}

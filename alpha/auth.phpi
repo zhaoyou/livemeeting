@@ -1,0 +1,14 @@
+<?php
+  $map = array(
+    'user1' => 'password',
+    'user2' => 'password'
+  );
+
+  if (isset($_GET['u']) &&
+      isset($map[$_GET['u']])) {
+    // pass
+  } else {
+    header('Location: login');
+    exit;
+  }
+?>

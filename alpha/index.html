@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no">
+    <title>Live Meeting</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" type="text/css" href="css/layout.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/chatbox.css">
+    <link rel="stylesheet" type="text/css" href="css/slide.css">
+  </head>
+  <body>
+    <header id="header">
+      <div class="header">
+        <div class="logo"></div>
+        <div style="clear:both"></div>
+      </div>
+    </header>
+    <div id="background-page">
+      <div id="body" data-userid="xx" data-eventid="gsk">
+        <div class="banner"></div>
+        <div class="main">
+          <div id="side-panel" class="panel">
+            <div class="title">直播</div>
+            <a href="" id="small-box"></a>
+            <div id="chat">
+              <div class="message-container"></div>
+              <textarea class="message-input" placeholder="请输入您所要提问的问题"></textarea>
+              <div class="message-send-bar">
+                <input class="message-input-name" placeholder="请输入您所在省市及所在医院" >
+                <input class="message-send" type="button" value="提问">
+              </div>
+            </div>
+          </div><!--
+        --><div id="large-panel" class="panel">
+            <div class="title">幻灯片</div>
+            <div id="large-box">
+              Loading...
+            </div>
+            <div id="slide">
+              <div class="pdf-box">
+                <canvas id="the-canvas"></canvas>
+                <canvas id="the-canvas-alter"></canvas>
+                <div class="canvas-overlay"></div>
+                <div class="prev-overlay-container" onclick="slide.goPrev()"></div>
+                <div class="next-overlay-container" onclick="slide.goNext()"></div>
+              </div>
+              <div class="pdf-controller">
+
+                &nbsp; &nbsp;
+                <div id="prev_img" onclick="slide.goPrev()"></div>
+                <span class="page-number"><span id="local_page_num">0</span> / <span id="local_page_count">0</span></span>
+                <div id="next_img" onclick="slide.goNext()"></div>
+                <!--<span id="masterStatus"></span>
+                <span id="sync" >Sync</span>
+                -->
+              </div>
+              <div id="sync-container" onclick="slide.syncMaster()">
+                <div id="sync"></div> 同步翻页
+              </div>
+              <div class="fullscreen-container">
+                <div id="enter-fullscreen" onclick="slide.launchFullScreen()"></div>
+                <div id="exit-fullscreen" onclick="slide.cancelFullscreen()"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="helper">
+      如果无法正常观看，请检查您的电脑是否正常连入互联网及其他视频是否可以播放,是否未使用<a href="http://down.tech.sina.com.cn/content/40975.html" target="_blank">最新版Chrome浏览器</a>。
+    </div>
+    <footer id="footer">
+      网络直播系统 &copy; 2013 PXTek.com All Rights Reserved
+    </footer>
+    <script type="text/javascript" src="js/jquery-1.9.0.min.js" ></script>
+    <script type="text/javascript" src="flowplayer/flowplayer3.2.16/flowplayer-3.2.12.min.js" ></script>
+    <script type="text/javascript" src="flowplayer/flowplayer.ipad-3.2.12.min.js"></script>
+    <script type="text/javascript" src="https://cdn.firebase.com/v0/firebase.js"></script>
+    <script type="text/javascript" src="js/pdf.js"></script>
+    <script>
+      PDFJS.workerSrc = "./js/pdf.js";
+    </script>
+    <script type="text/javascript" src="js/VideoModel.js"></script>
+    <script type="text/javascript" src="js/VideoApp.js"></script>
+    <script type="text/javascript" src="js/SlideApp.js"></script>
+    <script type="text/javascript" src="js/SlideModel.js"></script>
+    <script type='text/javascript' src='js/ChatModel.js'></script>
+    <script type='text/javascript' src='js/ChatBox.js'></script>
+    <script>
+      //var userId = $('#body').attr('data-userid');
+      var userId = Math.random().toString().substr(2);
+      var eventId = $('#body').attr('data-eventid');
+      var baseRef = new Firebase('https://livemeeting.firebaseio.com/').child(eventId);
+
+      var chatModel = new ChatModel(baseRef);
+      var chatBox = new ChatBox($('#chat'), userId, chatModel);
+      var video = new VideoApp('small-box', new VideoModel(baseRef.child('video')), 280, 200);
+      //var ppt = new VideoApp('large-box', new VideoModel(baseRef.child('ppt')), 660, 510);
+      var slide = new SlideApp($('#slide')[0], new SlideModel(baseRef.child('pdf')), 660, 500);
+      $(document).bind('webkitfullscreenchange mozfullscreenchange fullscreenchange', {'slide': slide}, slide.fullscreenChange);
+    </script>
+  </body>
+</html>

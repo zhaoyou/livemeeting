@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+  background: url(../images/bg-pattern-signinFilterChatShow.png) repeat;
+}
+
+header {
+  height: 48px;
+  background: url(../images/bg-NavigationBar.png) repeat-x 50%;
+}
+.header {
+  width: 980px;
+  margin: auto;
+}
+.logo {
+  width: 104px;
+  height: 48px;
+  float: left;
+  background: url(../images/img-logo.png) no-repeat;
+}
+
+#main {
+  width: 1010px;
+  margin: auto;
+  display: -webkit-box;
+  background: url(../images/bg-chatShow.png) no-repeat;
+}
+
+#slide {
+  margin-top: 60px;
+  margin-left: 20px;
+  font-weight: bold;
+  word-wrap: break-word;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#controller {
+  margin-top: 60px;
+  padding-left: 20px;
+}
+
+#slideurl {
+  width: 200px;
+}
+
+#controller #video {
+  margin-top: 20px;
+}
+
+#controller #videoWeb, #videoIpad {
+  width: 244px;
+}
+
+#controller #changeSlideStatus, #changeVideoStatus {
+  color: green;
+}
+
+#main #slide::-webkit-scrollbar {
+  width: 10px;
+}
+#main #slide::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+#main #slide::-webkit-scrollbar-thumb {
+  height: 50px;
+  background: #C2C2C2;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+}

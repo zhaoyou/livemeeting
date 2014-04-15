@@ -1,0 +1,141 @@
+body {
+  margin: 0;
+  background: url(../images/bg-pattern-signinFilterChatShow.png) repeat;
+}
+
+header {
+  height: 48px;
+  background: url(../images/bg-NavigationBar.png) repeat-x 50%;
+}
+header .header {
+  width: 980px;
+  margin: auto;
+}
+.logo {
+  width: 104px;
+  height: 48px;
+  float: left;
+  background: url(../images/img-logo.png) no-repeat;
+}
+
+#main {
+  width: 1024px;
+  height: 768px;
+  margin: auto;
+  background: url(../images/bg-signin.png) no-repeat;
+}
+
+#meeting-info,
+#login-panel {
+  display: inline-block;
+  padding-top: 180px;
+  vertical-align: top;
+}
+#meeting-info {
+  padding-left: 70px;
+  padding-right: 50px;
+  width: 500px;
+  word-wrap: break-word;
+  color: #585858;
+}
+
+#meeting-info .title {
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+  height: 20px;
+  line-height: 20px;
+  margin-bottom: 15px;
+}
+#meeting-info .title::before {
+  display: inline-block;
+  content: ' ';
+  width: 5px;
+  height: 20px;
+  margin-right: 10px;
+  background: #C5533A;
+  vertical-align: top;
+}
+
+#login-panel {
+  width: 320px;
+}
+#login-panel .header {
+  border: 1px solid #A2331F;
+  border-radius: 8px 8px 0 0;
+  height: 40px;
+  line-height: 40px;
+  color: white;
+  font-size: 20px;
+  text-indent: 10px;
+  background: -moz-linear-gradient(
+    top,
+    white 0%,
+    #CA593F 2%,
+    #B7412B);
+  background: -webkit-linear-gradient(
+    top,
+    white 0%,
+    #CA593F 2%,
+    #B7412B);
+}
+#login-panel .body {
+  border: 1px solid #B49EA4;
+  border-radius: 0 0 8px 8px;
+  height: 130px;
+}
+#login-panel .body .username {
+  display: block;
+  height: 45px;
+  width: 268px;
+  padding-left: 20px;
+  border: 1px solid #D9D9D9;
+  margin: 17px 14px;
+  border-radius: 4px;
+  -moz-box-shadow:
+    inset 0px 0px 8px #D9D9D9;
+  -webkit-box-shadow:
+    inset 0px 0px 8px #D9D9D9;
+  box-shadow:
+    inset 0px 0px 8px #D9D9D9;
+}
+#login-panel .body .button {
+  width: 80px;
+  height: 32px;
+  margin-left: 223px;
+
+  color: white;
+  background: -moz-linear-gradient(
+    top,
+    #C9583E 0%,
+    #B6402A);
+  background: -webkit-linear-gradient(
+    top,
+    #C9583E 0%,
+    #B6402A);
+  border-radius: 4px;
+  border: 1px solid #A53B28;
+  -moz-box-shadow:
+    0px 1px 3px rgba(000,000,000,0.5),
+    inset 0px 0px 3px rgba(255,255,255,1);
+  -webkit-box-shadow:
+    0px 1px 3px rgba(000,000,000,0.5),
+    inset 0px 0px 3px rgba(255,255,255,1);
+  box-shadow:
+    0px 1px 3px rgba(000,000,000,0.5),
+    inset 0px 0px 3px rgba(255,255,255,1);
+  text-shadow:
+    0px -1px 0px rgba(000,000,000,0.2),
+    0px 1px 0px rgba(255,255,255,1);
+}
+
+#login-panel .body .button:active {
+  background: -moz-linear-gradient(
+    bottom,
+    #C9583E 0%,
+    #B6402A);
+  background: -webkit-linear-gradient(
+    bottom,
+    #C9583E 0%,
+    #B6402A);
+}

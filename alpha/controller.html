@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Slide Controller</title>
+    <link rel="stylesheet" type="text/css" href="css/controller.css">
+    <link rel="stylesheet" type="text/css" href="css/slide.css">
+  </head>
+  <body>
+    <header>
+      <div class="header">
+        <div class="logo"></div>
+      </div>
+    </header>
+    <div id="main" data-eventid="gsk">
+      <div id="slide">
+        <div class="pdf-box">
+          <canvas id="the-canvas"></canvas>
+        </div>
+      </div>
+      <div id="controller">
+        <span>slide url: </span>
+        <input id="slideurl" /><br/>
+        <button id="changeUrl" onclick="slide.changeSlideUrl()"> Change</button>
+        <span id="changeSlideStatus"></span>
+        <br/>
+        <i>http://f.qa.pxtek.com/slides/change.pdf</i><br/>
+        <i>http://f.qa.pxtek.com/slides/tracemonkey.pdf</i><br/>
+        <i>http://f.qa.pxtek.com/slides/websites_faster.pdf</i><br/>
+        <button id="master_prev" onclick="slide.goPrev()">Previous</button>
+        <button id="master_next" onclick="slide.goNext()">Next</button>
+        &nbsp; &nbsp;
+        <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
+        <br/>
+        <div id="video">
+          <span>直播视频</span>
+          <a href="" id="small-box">Loading ...</a>
+          <br/>
+          <span>Web url:</span>
+          <input id="videoWeb" value="http://www.pxtek.com:8080/hls/ccc.m3u8"/><br/>
+          <span>Ipad url:</span>
+          <input id="videoIpad" value="http://www.pxtek.com:8080/hls/aaa.m3u8"/><br/>
+          <button id="changeVideoUrl" onclick="video.changeUrl()">Change</button>
+          <span id="changeVideoStatus"></span>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="js/jquery-1.9.0.min.js" ></script>
+    <script type="text/javascript" src="https://cdn.firebase.com/v0/firebase.js"></script>
+
+    <script type="text/javascript" src="js/pdf.js"></script>
+
+    <script type="text/javascript" src="js/SlideMasterApp.js"></script>
+    <script type="text/javascript" src="js/SlideModel.js"></script>
+
+    <script type="text/javascript" src="flowplayer/flowplayer3.2.16/flowplayer-3.2.12.min.js" ></script>
+    <script type="text/javascript" src="flowplayer/flowplayer.ipad-3.2.12.min.js"></script>
+
+    <script type="text/javascript" src="js/VideoModel.js"></script>
+    <script type="text/javascript" src="js/VideoApp.js"></script>
+
+    <script type="text/javascript">
+      var eventId = $('#main').attr('data-eventid');
+      var baseRef = new Firebase('https://livemeeting.firebaseio.com').child(eventId);
+      var slide = new SlideMasterApp('the-canvas', new SlideModel(baseRef.child('pdf')), 660, 510);
+      var video = new VideoApp('small-box', new VideoModel(baseRef.child('video')), 280, 200);
+    </script>
+  </body>
+</html>

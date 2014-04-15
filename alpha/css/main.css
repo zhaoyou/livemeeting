@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+  background: url(../images/bg-helpInfo.png)
+}
+
+.logo {
+  width: 104px;
+  height: 48px;
+  float: left;
+  background: url(../images/img-logo.png) no-repeat;
+}
+.logout {
+  float: right;
+  font-size: 14px;
+  margin: 20px 10px;
+  color: #7F7F7F;
+}
+
+.panel {
+  position: relative;
+}
+.panel .title {
+  position: absolute;
+  z-index: 100;
+  top: 5px;
+  left: 5px;
+  color: #FFF;
+  font-weight: bold;
+  opacity: 0.5;
+}
+.helper {
+  margin: auto;
+  width: 980px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: #767676;
+  font-size: 14px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+.heler a:link,
+.heler a:hover,
+.heler a:visited {
+  color: #448DE1;
+}
