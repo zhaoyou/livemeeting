@@ -90,9 +90,9 @@
     <script type='text/javascript' src='js/ChatBox.js'></script>
     <script>
       //var userId = $('#body').attr('data-userid');
-      var userId = Math.random().toString().substr(2);
+      var userId = 'guest'//Math.random().toString().substr(2);
       var eventId = $('#body').attr('data-eventid');
-      var baseRef = new Firebase('https://livemeeting.firebaseio.com/').child(eventId);
+      var baseRef = new Firebase('https://talk.firebaseio.com/').child(eventId);
 
       var chatModel = new ChatModel(baseRef);
       var chatBox = new ChatBox($('#chat'), userId, chatModel);
